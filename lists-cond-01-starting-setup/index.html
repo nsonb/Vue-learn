@@ -24,7 +24,14 @@
         No goals have been added yet - please start adding some!
       </p>
       <ul v-else>
-        <li>Goal {{ currentGoal }}</li>
+        <li
+          v-for="(goal, index) in goals"
+          :key="goal"
+          @click="removeGoal(index)"
+        >
+          <div>{{index}}. {{ goal }}</div>
+          <input type="text" @click.stop />
+        </li>
       </ul>
     </section>
   </body>
